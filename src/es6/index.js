@@ -199,4 +199,5 @@ console.log(generatorHello.next().value);//next para obtener el valor del sgt el
 console.log(generatorHello.next().value);// valor del 2° elemento
 
 console.log(generatorHello.next().value);// el valor aun no esta definido.
-
+//===============================================================================
+//EMACScript6 salio en el año 2015
