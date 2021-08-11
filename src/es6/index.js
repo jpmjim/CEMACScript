@@ -161,5 +161,42 @@ helloPromise()
   .catch(error => console.log(error)); //catch nos permite obtener el error, el valor que no ha sido correcto 
 //==============================================================================
 
+//Clases, Módulos y Generadores
+//================================================================================
+//Clases las clases nos facilita la vida como programadores y en el caso particular de JS , nos permite trabajar orientada a objetos.
+class calculator {
+  constructor(){ //desifnamos las variables que van aestar disponibles en un scope global
+    this.valueA = 0;
+    this.valueB = 0;
+  }
+  sum(valueA, valueB) { //utilizamos el metodo sum, para sumar nuestros valores
+    this.valueA = valueA;
+    this.valueB = valueB;
+    return this.valueA + this.valueB;
+  }
+}
+const calc = new calculator();
+console.log(calc.sum(2, 2));
+//=====================================================================
 
+//Módulos --- Import y export modulos dentro de ES6
+//importamos de nuestro hilo principal
+import {hello} from './module';
+hello();
+//=====================================================================
+
+//Generadores --- una funcion especial que retorna una serie de valores segun el algotirmo definido con "*" (asterisco), muy importante cuando trabajemos con logicas o algoritmos.
+function* helloWorld() {
+  if (true) {
+    yield 'Hello, ';//yield guarda este estado de forma interna, 1° elemento
+  }
+  if (true) {
+    yield 'World';//2° elemento
+  }
+};
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);//next para obtener el valor del sgt elemento,valor 1° elemento
+console.log(generatorHello.next().value);// valor del 2° elemento
+
+console.log(generatorHello.next().value);// el valor aun no esta definido.
 
