@@ -100,3 +100,66 @@ console.log(globalVar);
 
 //ES6 --- const definir una varible constante. no se puede reasignar, no cambia su valor.
 const a = 'b';
+//=======================================================================
+
+//Arrow Functions, Promesas y Parámetros en objetos // simplificamos nuestro codigo lo hacemos amigable
+//===================================================
+//Parámetros en objetos --- Propiedad de objetos mejorada
+let name = 'jimmy';
+let age =  30;
+
+//antes de ES6 (es5)
+obj = {name: name, age: age}; //des esta forma se podia acceder alos elementos.
+//ES6
+obj2 = {name, age};
+console.log(obj2);
+//=================================================================================
+
+//Arrow Functions --- Funciones tipo flecha, tiene una syntasis mas reducida y un this no vinculable.las arrow functions son funciones anonimas
+const names = [
+  {name: 'Joel', age: 30},
+  {name: 'Oscar', age: 32}
+]
+
+//antes ES6 --- esta es una funcion anonima.
+let listOfNames = names.map(function(item){
+  console.log(item.name); 
+})
+
+//ES6 --- arrow function --- Forma #1
+let listOfNames2 = names.map(item => console.log(item.name));
+
+//pueden usar constantes (CONST)
+const listOfNames3 = (name, age, country) => {
+  //Forma #2
+}
+//solo si pasamos solo un elemento
+const listOfNames4 = name => {
+  //Forma #3
+}
+//cmas amigable
+const square = num => num * num; //ya no tengo que generar un return, no tener bloques de llaves, lo asignamos directamente.
+//==================================================================================
+
+//Promesas --- que vamos a trabajar el asincronismo, donde js  no es sincronico que puede ejecutar muchos elementos al mismo tiempo, si no que ejecuta elementos x elementos. una promesa es algo que va a pasar en algun momento.
+
+//estructura de la promesa
+const helloPromise = () => {
+  return new Promise((resolve, reject) => {
+    if (false) {
+      resolve('Hey!'); //resolvio la promesa
+    } else {
+      reject('Ups!!');
+    }
+  });
+}
+
+//ejecutar promesa
+helloPromise()
+  .then(response => console.log(response)) //then nos permite obtener esa respuesta (pueden ser varios)
+  .then(() => console.log('hola'))
+  .catch(error => console.log(error)); //catch nos permite obtener el error, el valor que no ha sido correcto 
+//==============================================================================
+
+
+
